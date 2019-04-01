@@ -1,3 +1,4 @@
+import time
 
 data = []
 count = 0
@@ -7,7 +8,7 @@ with open ('reviews.txt', 'r') as f:
 		count += 1
 		if count % 10000 == 0:
 			print(len(data))
-
+start_time = time.time()
 wc = {}
 for d in data:
 	words = d.split()
@@ -20,6 +21,8 @@ for d in data:
 for word in wc:
 	if wc[word] > 1000000:
 		print(word, wc[word])
+end_time = time.time()
+print('花了', end_time - start_time, 'seconds')
 
 print(len(wc))
 
